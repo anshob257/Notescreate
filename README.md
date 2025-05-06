@@ -19,7 +19,7 @@ supabase functions deploy post_notes
 supabase functions deploy get_notes
 ```
 
-- Set required environment variables (`SUPABASE_URL`, `SUPABASE_ANON_KEY`) in Supabase Functions.
+- Set required environment variables (https://znzabgsahhgnseoqxikz.supabase.co, eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpuemFiZ3NhaGhnbnNlb3F4aWt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMTMwNDMsImV4cCI6MjA2MTU4OTA0M30.CfKR6FQMjrY6LcwYaF_999km8LsHRhb0Cfyzqk6eObQ) in Supabase Functions.
 
 ## 🛠️ Schema Design (Why?)
 
@@ -33,15 +33,18 @@ supabase functions deploy get_notes
 ### Create a note (POST /notes)
 
 ```
-curl -X POST https://<project-ref>.functions.supabase.co/post_notes \
- -H 'Authorization: Bearer <your-jwt>' \
- -H 'Content-Type: application/json' \
- -d '{"title": "Sample Note", "content": "This is a test note"}'
+curl -L -X POST 'https://znzabgsahhgnseoqxikz.supabase.co/functions/v1/post_notes' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpuemFiZ3NhaGhnbnNlb3F4aWt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMTMwNDMsImV4cCI6MjA2MTU4OTA0M30.CfKR6FQMjrY6LcwYaF_999km8LsHRhb0Cfyzqk6eObQ' \
+  -H 'Content-Type: application/json' \
+  --data '{"name":"Functions"}'
+
 ```
 
 ### List all notes (GET /notes)
 
 ```
-curl -X GET https://<project-ref>.functions.supabase.co/get_notes \
- -H 'Authorization: Bearer <your-jwt>'
+curl -L -X POST 'https://znzabgsahhgnseoqxikz.supabase.co/functions/v1/get_notes' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpuemFiZ3NhaGhnbnNlb3F4aWt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMTMwNDMsImV4cCI6MjA2MTU4OTA0M30.CfKR6FQMjrY6LcwYaF_999km8LsHRhb0Cfyzqk6eObQ' \
+  -H 'Content-Type: application/json' \
+  --data '{"name":"Functions"}'
 ```
